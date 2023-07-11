@@ -21,7 +21,8 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    @post = Post.new(post_params)
+    @circle = Circle.find(params[:group_id])
+    @post = @circle.posts.build(post_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @post.save

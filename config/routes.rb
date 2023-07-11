@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  resources :groups
+  get 'pages/home'
+  resources :groups do
+    post "join", on: :member
+    delete "leave", on: :member
+  end
   resources :posts
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # root "articles#index"
+  root "pages#home"
 end
