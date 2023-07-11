@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: %i[ show edit update destroy ]
+  before_action :set_group, only: %i[ show edit update destroy leave join ]
 
   # GET /groups or /groups.json
   def index
@@ -55,6 +55,16 @@ class GroupsController < ApplicationController
       format.html { redirect_to groups_url, notice: "Group was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def join
+    @group.users << current_user
+    redirect_to group_url(@group), notice: "You have joined the group."
+  end
+
+  def leave
+    @group.users.delete(current_user)
+    redirect_to group_url(@group), notice: "You have left the group."
   end
 
   private

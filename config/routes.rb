@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'pages/home'
   resources :groups do
+    resources :posts
     post "join", on: :member
     delete "leave", on: :member
   end

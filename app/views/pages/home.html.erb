@@ -1,9 +1,29 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
 
-<% if user_signed_in? %>
-    <%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: {turbo_method: :delete}%>
-<% else %>
-    <%= link_to "Sign In", new_user_session_path%>
-    <%= link_to "Sign Up", new_user_registration_path%>
+<div class="header">
+    <%= image_tag ("3.png")%>
+   <% if user_signed_in? %>
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, data: {turbo_method: :delete}%>
+    <% else %>
+        <%= link_to "Sign In", new_user_session_path%>
+        <%= link_to "Sign Up", new_user_registration_path%>
+    <% end %>
+</div>
+
+
+<% if (user_signed_in?) %>
+    <div class="welcome">
+        <div>Hello <%= @user.email%></div>
+        <div>Hello <%= @user.id%></div>
+    </div>
 <% end %>
+
+<div class="posts_menu">
+    <%= render partial: "groups/feed" %>
+</div>
+
+<div class="your_circles">
+    <div>Your Circles</div>
+   <% current_user.groups.each do |group|%>
+      <%= link_to group.name, group_path(group)%>
+   <% end %>
+</div>

@@ -13,3 +13,56 @@
  *= require_tree .
  *= require_self
  */
+
+ :root {
+    --main-color: #2062F6;
+    --secondary-color: #1758EB;
+    --accent-color-two: #ABA49F;
+    --accent-color-three: #6B6774;
+    --accent-color-four: #000000;
+ }
+
+
+ body {
+    display: grid;
+    grid-template-rows: .5fr 2fr;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas:
+    "header header"
+    "post_menu new_circle";
+    width: 100%;
+    box-sizing: border-box;
+ }
+
+ .header {
+    grid-area: header;
+    display:  flex;
+    justify-content: flex-end;
+    gap: 50px;
+    align-items: center;
+    background-color: var(--secondary-color);
+    position: relative;
+    height: 90px;
+    padding-right: 20px;
+ }
+
+ .header img {
+    padding: none;
+    height: 200px;
+    position: absolute;
+    left: 10px;
+ }
+
+ .header a {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5vh;
+    font-family: "Code_pro";
+    text-decoration: none;
+    padding-right: 25px;
+ }
+
+.header a:hover {
+    color: rgba(255, 255, 255, 0.798);
+}
