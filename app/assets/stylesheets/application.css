@@ -14,6 +14,10 @@
  *= require_self
  */
 
+ * {
+    font-family: Verdana, sans-serif;
+ }
+
  :root {
     --main-color: #2062F6;
     --secondary-color: #1758EB;
@@ -22,16 +26,22 @@
     --accent-color-four: #000000;
  }
 
-
+@font-face {
+    font-family: 'Code Pro';
+    src: url("code_pro.ttf")
+}
  body {
     display: grid;
-    grid-template-rows: .5fr 2fr;
-    grid-template-columns: 3fr 1fr;
+    grid-template-rows: .5fr 2fr 2fr auto;
+    grid-template-columns: 3.5fr 1fr;
     grid-template-areas:
     "header header"
-    "post_menu new_circle";
+    "post_menu new_circle"
+    "post_menu yc"
+    "post_menu post-menu";
     width: 100%;
     box-sizing: border-box;
+    background-color: rgb(251, 248, 248);
  }
 
  .header {
@@ -58,11 +68,129 @@
     border: none;
     color: white;
     font-size: 1.5vh;
-    font-family: "Code_pro";
     text-decoration: none;
     padding-right: 25px;
  }
 
 .header a:hover {
     color: rgba(255, 255, 255, 0.798);
+}
+
+.body_header {
+    width: 90%;
+    height: 50%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 25px;
+    margin-bottom: 10px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    justify-content: center;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+    font-family: "Code Pro";
+}
+
+.create_post {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.create_post button, .new_circle input[type="submit"]{
+    border: none;
+    width: 100px;
+    height: 25px;
+    background-color: white;
+    border-radius: 60px;
+}
+
+.post {
+   list-style: none;
+   border-radius: 12px;
+   margin: 25px;
+   padding: 20px;
+   background-color: white;
+   width: 90%;
+   display: flex;
+   flex-direction: column;
+   box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+
+}
+
+.title {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.posts_menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.author {
+    padding-bottom: 5px;
+    display: flex;
+    gap: 8px;
+    color: var(--secondary-color);
+}
+
+.new_circle, .your_circles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color:white;
+    border-radius: 16px;
+    padding: 10px;
+    margin: 25px;
+    margin-right: 50px;
+    border: 1px solid var(--accent-color-two);
+
+    grid-area: new_circle;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+label {
+    text-align: center;
+}
+
+form input {
+    border-radius: 60px;
+    border: none;
+}
+
+.your_circles {
+    grid-area: yc;
+}
+
+.posts_menu {
+    grid-area: post_menu;
+}
+
+.form_post {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.posts_buttons {
+    display: flex;
+}
+.post_body, .post_body textarea {
+    width: 100%;
+    border: none;
+}
+
+.post_body textarea {
+    height: 100px;
 }

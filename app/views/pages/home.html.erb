@@ -10,14 +10,18 @@
 </div>
 
 
-<% if (user_signed_in?) %>
-    <div class="welcome">
-        <div>Hello <%= @user.email%></div>
-        <div>Hello <%= @user.id%></div>
-    </div>
-<% end %>
+
+
+<div class="new_circle">
+    <%= render partial: "groups/form", :group => @group %>
+</div>
 
 <div class="posts_menu">
+    <div class="body_header">
+        <div class="create_post">
+            <%= render partial: "posts/form", :post => @post %>
+        </div>
+    </div>
     <%= render partial: "groups/feed" %>
 </div>
 
@@ -27,3 +31,5 @@
       <%= link_to group.name, group_path(group)%>
    <% end %>
 </div>
+
+
