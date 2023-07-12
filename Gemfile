@@ -74,3 +74,5 @@ end
 gem "devise"
 
 gem "sass-rails"
+
+gem "omniauth-facebook"
