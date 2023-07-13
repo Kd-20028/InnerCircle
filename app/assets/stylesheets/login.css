@@ -9,6 +9,7 @@
     --accent-color-two: #ABA49F;
     --accent-color-three: #6B6774;
     --accent-color-four: #000000;
+    box-sizing: border-box;
  }
 
  html {
@@ -34,12 +35,39 @@
     flex-direction: column;
  }
 
+ .actions > .field {
+   border: none;
+ }
 
 .field {
+   border: 1px solid rgb(224, 217, 217);
+   border-radius: 10px;
    display: flex;
    gap: 10px;
+   width: 50%;
 }
 
+.field > img {
+   margin: 10px;
+   padding: 10px;
+   border-right: 1px solid rgb(224, 217, 217);
+   width: 8%;
+}
+
+.info > input {
+   width: 90%;
+   background-color: none;
+}
+
+.info > label {
+   text-align: left;
+}
+
+.info {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
 .new_user {
    display: flex;
    flex-direction: column;
@@ -47,10 +75,12 @@
 
 h2, p {
    text-align: center;
+   margin: 0%;
+   padding: 0%;
 }
 
 input#user_email, input#user_password {
-   background-color: rgb(245, 242, 242);
+   background-color: none;
 
 }
 
@@ -58,42 +88,27 @@ input#user_email, input#user_password {
    display: flex;
    flex-direction: column;
    justify-content: center;
-   height: 400px;
-   width: 400px;
    padding: 15px;
 }
 
 .login_form {
    border-top-left-radius: 20px;
-}
-
-.side {
-   background-image: url("background1.png");
-   background-repeat: no-repeat;
-   background-size: cover;
-   image-rendering: pixelated;
-   border-top-right-radius: 20px;
-   border-bottom-right-radius: 20px;
-}
-
-
-.design {
-   display: flex;
-   align-items: center;
+   height: 100%;
+   width: 100%;
+   gap: 20px;
+   justify-content: center;
 }
 
 .whole {
    display: flex;
    justify-content: center;
+   align-items: center;
    background-color: white;
    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
    border-radius: 20px;
-}
-
-p, .side > h2 {
-   text-align: left;
-   color: white;
-   font-style: italic;
+   height: 70%;
+   overflow: hidden;
+   min-width: 30%;
 }
 
 .actions > input {
@@ -113,6 +128,10 @@ p, .side > h2 {
 }
 .actions input:nth-child(2) {
    grid-area: log;
+}
+
+.actions input:nth-child(2):hover {
+   color: black;
 }
 .actions a:nth-child(3) {
    grid-area: sign;
@@ -155,7 +174,36 @@ p, .side > h2 {
    grid-template-rows: 1fr 1fr;
    grid-template-columns: 2fr 2fr;
    grid-template-areas:
-   "remember forgot"
-   "log sign";
+   "log log"
+   "sign sign"
+   "remember forgot";
    gap: 5px;
+}
+
+img {
+   width: 5%;
+}
+
+.log_header {
+   display: flex;
+   gap: 5px;
+   align-items: center;
+   justify-content: center;
+   padding-bottom: 5%;
+   align-self: flex-start;
+   font-size: 20px;
+   font-weight: bold;
+   color: #165BCF;
+}
+
+
+
+.wrapper {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+
+.words > p {
+   color: lightgray;
 }
